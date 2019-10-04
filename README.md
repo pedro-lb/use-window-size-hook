@@ -10,17 +10,38 @@
 npm install --save use-window-size
 ```
 
+or
+
+```bash
+yarn add use-window-size
+```
+
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
 
-import { useMyHook } from 'use-window-size'
+import { useWindowSize } from 'use-window-size'
 
-const Example = () => {
-  const example = useMyHook()
+const App = () => {
+  const {
+    width,
+    height,
+    screenLayout,
+  } = useWindowSize();
+
   return (
-    <div>{example}</div>
+    <>
+      <p>
+        {`Window width: ${width}`}
+      </p>
+      <p>
+        {`Window height: ${height}`}
+      </p>
+      <p>
+        {`Screen layout according to Bootstrap 4: ${screenLayout}`}
+      </p>
+    </>
   )
 }
 ```
