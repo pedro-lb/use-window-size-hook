@@ -1,19 +1,19 @@
-# use-window-size
+# use-window-size-hook
 
 > React Hook to monitor window size &amp; layout according to Bootstrap 4 breakpoints.
 
-[![NPM](https://img.shields.io/npm/v/use-window-size.svg)](https://www.npmjs.com/package/use-window-size) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/use-window-size-hook.svg)](https://www.npmjs.com/package/use-window-size-hook) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save use-window-size
+npm install --save use-window-size-hook
 ```
 
 or
 
 ```bash
-yarn add use-window-size
+yarn add use-window-size-hook
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ yarn add use-window-size
 ```jsx
 import React, { Component } from 'react'
 
-import { useWindowSize } from 'use-window-size'
+import { useWindowSize } from 'use-window-size-hook'
 
 const App = () => {
   const {
