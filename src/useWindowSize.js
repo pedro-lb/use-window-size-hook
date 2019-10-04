@@ -46,8 +46,9 @@ const getSize = (isClient) => {
  * Hook that monitors window size, and updates the object
  * at the end of each window resize. It also returns the
  * actual screen layout - one of xl, lg, md, sm, xs.
+ * @param {If true, fires the event only when the user stops resizing.} onlyOnResizeEnd
  */
-export default function useWindowSize() {
+export default function useWindowSize(onlyOnResizeEnd = true) {
   const isClient = typeof window === "object";
 
   const [windowSize, setWindowSize] = useState(getSize(isClient));
@@ -60,8 +61,12 @@ export default function useWindowSize() {
     let resizeId;
 
     const handleResize = () => {
-      clearTimeout(resizeId);
-      resizeId = setTimeout(() => setWindowSize(getSize(isClient)), 200);
+      if (onlyOnResizeEnd) {
+        clearTimeout(resizeId);
+        resizeId = setTimeout(() => setWindowSize(getSize(isClient)), 200);
+      } else {
+        setWindowSize(getSize(isClient));
+      }
     };
 
     window.addEventListener("resize", handleResize);

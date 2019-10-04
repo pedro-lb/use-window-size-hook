@@ -1,6 +1,6 @@
 {
   "name": "use-window-size-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Hook to monitor window size &amp; layout according to Bootstrap 4 breakpoints.",
   "author": "pedro-lb",
   "license": "MIT",
