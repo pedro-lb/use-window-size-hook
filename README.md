@@ -18,6 +18,8 @@ yarn add use-window-size-hook
 
 ## Usage
 
+### updates only when user stops resizing
+
 ```jsx
 import React, { Component } from 'react'
 
@@ -29,6 +31,36 @@ const App = () => {
     height,
     screenLayout,
   } = useWindowSize();
+
+  return (
+    <>
+      <p>
+        {`Window width: ${width}`}
+      </p>
+      <p>
+        {`Window height: ${height}`}
+      </p>
+      <p>
+        {`Screen layout according to Bootstrap 4: ${screenLayout}`}
+      </p>
+    </>
+  )
+}
+```
+
+### updates continuously, at every resize event
+
+```jsx
+import React, { Component } from 'react'
+
+import { useWindowSize } from 'use-window-size-hook'
+
+const App = () => {
+  const {
+    width,
+    height,
+    screenLayout,
+  } = useWindowSize(false);
 
   return (
     <>
