@@ -23,7 +23,7 @@ yarn add use-window-size-hook
 ```jsx
 import React, { Component } from 'react'
 
-import { useWindowSize } from 'use-window-size-hook'
+import useWindowSize from 'use-window-size-hook'
 
 const App = () => {
   const {
@@ -53,7 +53,7 @@ const App = () => {
 ```jsx
 import React, { Component } from 'react'
 
-import { useWindowSize } from 'use-window-size-hook'
+import useWindowSize from 'use-window-size-hook'
 
 const App = () => {
   const {
