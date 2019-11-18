@@ -78,6 +78,28 @@ const App = () => {
 }
 ```
 
+### easily compare layout breakpoints
+
+```jsx
+import React, { Component } from 'react'
+
+import useWindowSize, { layout } from "use-window-size-hook";
+
+const App = () => {
+  const { screenLayout } = useWindowSize();
+  
+  const isBiggerThanMd = screenLayout > layout.md;
+
+  return (
+    <>
+      <p>
+        {isBiggerThanMd ? "Layout is bigger than md" : "Layout is md or smaller"}
+      </p>
+    </>
+  )
+}
+```
+
 ## License
 
 MIT © [pedro-lb](https://github.com/pedro-lb)
