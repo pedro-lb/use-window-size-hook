@@ -3,23 +3,23 @@ import { breakpoints } from "./breakpoints";
 import { layout } from "./layout";
 
 const getLayout = (width) => {
-  if (width > breakpoints.lg.width) {
-    return layout.xl;
+  if (width < breakpoints.sm) {
+    return layout.xs;
   }
 
-  if (width > breakpoints.md.width) {
-    return layout.lg;
-  }
-
-  if (width > breakpoints.sm.width) {
-    return layout.md;
-  }
-
-  if (width > breakpoints.xs.width) {
+  if (width < breakpoints.md) {
     return layout.sm;
   }
 
-  return layout.xs;
+  if (width < breakpoints.lg) {
+    return layout.md;
+  }
+
+  if (width < breakpoints.xl) {
+    return layout.lg;
+  }
+
+  return layout.xl;
 };
 
 const getSize = (isClient) => {
