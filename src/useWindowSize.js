@@ -3,19 +3,19 @@ import { breakpoints } from "./breakpoints";
 import { layout } from "./layout";
 
 const getLayout = (width) => {
-  if (width >= breakpoints.lg.width) {
+  if (width > breakpoints.lg.width) {
     return layout.xl;
   }
 
-  if (width >= breakpoints.md.width) {
+  if (width > breakpoints.md.width) {
     return layout.lg;
   }
 
-  if (width >= breakpoints.sm.width) {
+  if (width > breakpoints.sm.width) {
     return layout.md;
   }
 
-  if (width >= breakpoints.xs.width) {
+  if (width > breakpoints.xs.width) {
     return layout.sm;
   }
 
