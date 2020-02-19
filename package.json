@@ -1,6 +1,6 @@
 {
   "name": "use-window-size-hook",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React Hook to monitor window size &amp; layout according to Bootstrap 4 breakpoints.",
   "author": "pedro-lb",
   "license": "MIT",
@@ -64,5 +64,12 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-url": "^2.1.0"
-  }
+  },
+  "keywords": [
+    "hooks",
+    "react",
+    "react-hook",
+    "window-size",
+    "size"
+  ]
 }
