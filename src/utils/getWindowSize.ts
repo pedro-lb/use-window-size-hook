@@ -1,14 +1,16 @@
+import { GetWindowSizeResult } from '../interfaces';
 import getCurrentLayout from './getCurrentLayout';
 
 /**
  * Returns the current window size state.
  * @param hasWindowObject Defines if the window object is present.
  */
-const getWindowSize = (hasWindowObject: boolean) => {
+const getWindowSize = (hasWindowObject: boolean): GetWindowSizeResult => {
   if (!hasWindowObject) {
     return {
       width: undefined,
       height: undefined,
+      screenLayout: undefined,
     };
   }
 

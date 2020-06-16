@@ -1,6 +1,6 @@
-import { GetCurrentLayoutOptions } from '../interfaces';
 import defaultBreakpoints from '../constants/defaultBreakpoints';
-import layout from '../constants/layout';
+import { GetCurrentLayoutOptions } from '../interfaces';
+import LayoutEnum from '../constants/layoutEnum';
 
 /**
  * Returns the current layout.
@@ -8,24 +8,24 @@ import layout from '../constants/layout';
  */
 const getCurrentLayout = ({
   width,
-}: GetCurrentLayoutOptions) => {
+}: GetCurrentLayoutOptions): LayoutEnum => {
   if (width < defaultBreakpoints.sm) {
-    return layout.xs;
+    return LayoutEnum.xs;
   }
 
   if (width < defaultBreakpoints.md) {
-    return layout.sm;
+    return LayoutEnum.sm;
   }
 
   if (width < defaultBreakpoints.lg) {
-    return layout.md;
+    return LayoutEnum.md;
   }
 
   if (width < defaultBreakpoints.xl) {
-    return layout.lg;
+    return LayoutEnum.lg;
   }
 
-  return layout.xl;
+  return LayoutEnum.xl;
 };
 
 export default getCurrentLayout;

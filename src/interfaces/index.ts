@@ -1,3 +1,5 @@
+import LayoutEnum from '../constants/layoutEnum';
+
 /**
  * Options for useWindowSize hook.
  */
@@ -10,5 +12,14 @@ export interface UseWindowSizeOptions {
  * Options for getCurrentLayout.
  */
 export interface GetCurrentLayoutOptions {
-  width: number
+  width: number;
+}
+
+/**
+ * Result for getWindowSize.
+ */
+export interface GetWindowSizeResult {
+  width?: number;
+  height?: number;
+  screenLayout?: LayoutEnum;
 }

@@ -23,7 +23,7 @@ yarn add use-window-size-hook
 ```jsx
 import React, { Component } from 'react'
 
-import useWindowSize from 'use-window-size-hook'
+import { useWindowSize } from 'use-window-size-hook'
 
 const App = () => {
   const {
@@ -87,7 +87,7 @@ import useWindowSize, { layout } from "use-window-size-hook";
 
 const App = () => {
   const { screenLayout } = useWindowSize();
-  
+
   const isBiggerThanMd = screenLayout > layout.md;
 
   return (

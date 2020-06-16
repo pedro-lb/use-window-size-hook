@@ -1,23 +1,21 @@
 import { useState, useEffect, useMemo } from 'react';
 
-import { UseWindowSizeOptions } from '../interfaces';
+import { UseWindowSizeOptions, GetWindowSizeResult } from '../interfaces';
 import getWindowSize from '../utils/getWindowSize';
 
 /**
- * Hook that monitors window size, and updates the object
- * at the end of each window resize. It also returns the
- * actual screen layout - one of xl, lg, md, sm, xs.
- * @param {*} onlyOnResizeEnd If true, fires the event only when the user stops resizing.
+ * Hook that monitors window size, and updates the object at the end of each window resize.
+ * It also returns the actual screen layout - one of xl, lg, md, sm, xs.
  */
 const useWindowSize = ({
   useDebounce = true,
   debounceTimeMs = 200,
-}: UseWindowSizeOptions) => {
+}: UseWindowSizeOptions): GetWindowSizeResult => {
   const hasWindowObject = useMemo(() => (
     typeof window === 'object'
   ), []);
 
-  const [windowSize, setWindowSize] = useState(getWindowSize(hasWindowObject));
+  const [windowSize, setWindowSize] = useState<GetWindowSizeResult>(getWindowSize(hasWindowObject));
 
   useEffect(() => {
     if (!hasWindowObject) {
