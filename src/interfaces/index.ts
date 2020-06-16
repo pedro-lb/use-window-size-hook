@@ -33,11 +33,24 @@ export interface GetCurrentLayoutOptions {
  */
 export interface GetCurrentLayoutResult {
   layout: LayoutEnum;
+
+  isXs: boolean;
+  isSm: boolean;
+  isMd: boolean;
+  isLg: boolean;
+  isXl: boolean;
+
   isXsOrBelow: boolean;
   isSmOrBelow: boolean;
   isMdOrBelow: boolean;
   isLgOrBelow: boolean;
   isXlOrBelow: boolean;
+
+  isXsOrAbove: boolean;
+  isSmOrAbove: boolean;
+  isMdOrAbove: boolean;
+  isLgOrAbove: boolean;
+  isXlOrAbove: boolean;
 }
 
 /**

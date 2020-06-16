@@ -45,23 +45,15 @@ const App = () => {
       </p>
 
       <p>
+        {`Is md layout: ${screenLayout.isMd}`}
+      </p>
+
+      <p>
         {`Is xs layout or below: ${screenLayout.isXsOrBelow}`}
       </p>
 
       <p>
-        {`Is sm layout or below: ${screenLayout.isSmOrBelow}`}
-      </p>
-
-      <p>
-        {`Is md layout or below: ${screenLayout.isMdOrBelow}`}
-      </p>
-
-      <p>
-        {`Is lg layout or below: ${screenLayout.isLgOrBelow}`}
-      </p>
-
-      <p>
-        {`Is xl layout or below: ${screenLayout.isXlOrBelow}`}
+        {`Is lg layout or above: ${screenLayout.isLgOrAbove}`}
       </p>
     </>
   );
@@ -108,11 +100,24 @@ Name | Type | Required | Default value | Description
   height?: number;
   screenLayout?: {
     layout: xs | sm | md | lg | xl;
+
+    isXs: boolean;
+    isSm: boolean;
+    isMd: boolean;
+    isLg: boolean;
+    isXl: boolean;
+
     isXsOrBelow: boolean;
     isSmOrBelow: boolean;
     isMdOrBelow: boolean;
     isLgOrBelow: boolean;
     isXlOrBelow: boolean;
+
+    isXsOrAbove: boolean;
+    isSmOrAbove: boolean;
+    isMdOrAbove: boolean;
+    isLgOrAbove: boolean;
+    isXlOrAbove: boolean;
   };
 }
 ```
