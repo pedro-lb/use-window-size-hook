@@ -6,17 +6,36 @@ import getWindowSize from '../utils/getWindowSize';
 import useDidMount from './useDidMount';
 
 /**
+ * Default hook options.
+ */
+const defaultOptions = {
+  useDebounce: true,
+  debounceTimeMs: 200,
+  breakpoints: defaultBreakpoints,
+};
+
+/**
  * Hook that monitors window size, and updates the object at the end of each window resize.
  * It also returns the actual screen layout - one of xl, lg, md, sm, xs.
  */
-const useWindowSize = ({
-  useDebounce = true,
-  debounceTimeMs = 200,
-  breakpoints = defaultBreakpoints,
-}: UseWindowSizeOptions): UseWindowSizeResult => {
+const useWindowSize = (
+  options: UseWindowSizeOptions = defaultOptions,
+): UseWindowSizeResult => {
   const hasWindowObject = React.useMemo(() => (
     typeof window === 'object'
   ), []);
+
+  const breakpoints = React.useMemo(() => (
+    options.breakpoints ?? defaultOptions.breakpoints
+  ), [options]);
+
+  const useDebounce = React.useMemo(() => (
+    options.useDebounce ?? defaultOptions.useDebounce
+  ), [options]);
+
+  const debounceTimeMs = React.useMemo(() => (
+    options.debounceTimeMs ?? defaultOptions.debounceTimeMs
+  ), [options]);
 
   const [windowSize, setWindowSize] = React.useState<UseWindowSizeResult>(getWindowSize({
     hasWindowObject,
