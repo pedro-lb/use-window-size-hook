@@ -1,7 +1,7 @@
 /**
  * Defines breakpoint values according to bootstrap 4.
  */
-export const breakpoints = {
+const defaultBreakpoints = {
   // Extra small devices (portrait phones, less than 576px)
   xs: 0,
 
@@ -17,3 +17,5 @@ export const breakpoints = {
   // Extra large devices (large desktops, 1200px and up)
   xl: 1200,
 };
+
+export default defaultBreakpoints;

@@ -7,8 +7,8 @@ export interface UseWindowSizeOptions {
 }
 
 /**
- * Options for parseLayoutResult.
+ * Options for getCurrentLayout.
  */
-export interface ParseLayoutResultOptions {
+export interface GetCurrentLayoutOptions {
   width: number
 }

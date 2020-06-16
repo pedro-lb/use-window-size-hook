@@ -1,8 +1,7 @@
-import useWindowSize from "./useWindowSize";
-import { layout } from "./layout";
+import useWindowSize from './hooks/useWindowSize';
 
 export default useWindowSize;
 
 export {
-  layout,
+  useWindowSize,
 };
