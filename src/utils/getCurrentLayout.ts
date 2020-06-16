@@ -9,7 +9,7 @@ const getCurrentLayout = ({
   breakpoints,
   width,
 }: GetCurrentLayoutOptions): LayoutEnum => {
-  if (width < breakpoints.sm) {
+  if (width <= breakpoints.sm) {
     return LayoutEnum.xs;
   }
 
