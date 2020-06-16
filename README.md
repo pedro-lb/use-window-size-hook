@@ -19,9 +19,9 @@ yarn add use-window-size-hook
 ## Usage
 
 ```jsx
-import React from 'react'
+import React from 'react';
 
-import { useWindowSize } from 'use-window-size-hook'
+import { useWindowSize } from 'use-window-size-hook';
 
 const App = () => {
   const {
@@ -64,8 +64,30 @@ const App = () => {
         {`Is xl layout or below: ${screenLayout.isXlOrBelow}`}
       </p>
     </>
-  )
-}
+  );
+};
+```
+
+### Compare layout breakpoints
+
+```js
+import React from 'react';
+
+import { useWindowSize, layout } from "use-window-size-hook";
+
+const App = () => {
+  const { screenLayout } = useWindowSize();
+
+  const isBiggerThanMd = screenLayout > layout.md;
+
+  return (
+    <>
+      <p>
+        {isBiggerThanMd ? "Layout is bigger than md" : "Layout is md or smaller"}
+      </p>
+    </>
+  );
+};
 ```
 
 ## Props
