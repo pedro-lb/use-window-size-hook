@@ -18,10 +18,10 @@ yarn add use-window-size-hook
 
 ## Usage
 
-### updates only when user stops resizing
+### Updates only when user stops resizing
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import { useWindowSize } from 'use-window-size-hook'
 
@@ -48,10 +48,10 @@ const App = () => {
 }
 ```
 
-### updates continuously, at every resize event
+### Updates continuously, at every resize event
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import useWindowSize from 'use-window-size-hook'
 
@@ -78,10 +78,10 @@ const App = () => {
 }
 ```
 
-### easily compare layout breakpoints
+### Easily compare layout breakpoints
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
 import useWindowSize, { layout } from "use-window-size-hook";
 
@@ -93,7 +93,7 @@ const App = () => {
   return (
     <>
       <p>
-        {isBiggerThanMd ? "Layout is bigger than md" : "Layout is md or smaller"}
+        {isBiggerThanMd ? "Layout is bigger than md" : "Layout is md or smaller"}
       </p>
     </>
   )
