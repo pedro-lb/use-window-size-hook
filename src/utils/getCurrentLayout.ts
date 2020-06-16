@@ -1,10 +1,10 @@
-import { GetCurrentLayoutOptions, GetCurrentLayoutResult } from '../interfaces';
+import { GetCurrentLayoutOptions, ScreenLayout } from '../interfaces';
 import LayoutEnum from '../constants/layoutEnum';
 
 /**
  * Default return options.
  */
-const defaultReturn: GetCurrentLayoutResult = {
+const defaultReturn: ScreenLayout = {
   layout: LayoutEnum.xs,
 
   isXs: false,
@@ -33,7 +33,7 @@ const defaultReturn: GetCurrentLayoutResult = {
 const getCurrentLayout = ({
   breakpoints,
   width,
-}: GetCurrentLayoutOptions): GetCurrentLayoutResult => {
+}: GetCurrentLayoutOptions): ScreenLayout => {
   if (width <= breakpoints.sm) {
     return {
       ...defaultReturn,
