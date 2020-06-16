@@ -29,6 +29,18 @@ export interface GetCurrentLayoutOptions {
 }
 
 /**
+ * Result for getCurrentLayout.
+ */
+export interface GetCurrentLayoutResult {
+  layout: LayoutEnum;
+  isXsOrBelow: boolean;
+  isSmOrBelow: boolean;
+  isMdOrBelow: boolean;
+  isLgOrBelow: boolean;
+  isXlOrBelow: boolean;
+}
+
+/**
  * Options for getWindowSize.
  */
 export interface GetWindowSizeOptions {
@@ -42,5 +54,10 @@ export interface GetWindowSizeOptions {
 export interface GetWindowSizeResult {
   width?: number;
   height?: number;
-  screenLayout?: LayoutEnum;
+  screenLayout?: GetCurrentLayoutResult;
 }
+
+/**
+ * Result for useWindowSize.
+ */
+export interface UseWindowSizeResult extends GetWindowSizeResult {}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { UseWindowSizeOptions, GetWindowSizeResult } from '../interfaces';
+import { UseWindowSizeOptions, UseWindowSizeResult } from '../interfaces';
 import defaultBreakpoints from '../constants/defaultBreakpoints';
 import getWindowSize from '../utils/getWindowSize';
 import useDidMount from './useDidMount';
@@ -13,12 +13,12 @@ const useWindowSize = ({
   useDebounce = true,
   debounceTimeMs = 200,
   breakpoints = defaultBreakpoints,
-}: UseWindowSizeOptions): GetWindowSizeResult => {
+}: UseWindowSizeOptions): UseWindowSizeResult => {
   const hasWindowObject = React.useMemo(() => (
     typeof window === 'object'
   ), []);
 
-  const [windowSize, setWindowSize] = React.useState<GetWindowSizeResult>(getWindowSize({
+  const [windowSize, setWindowSize] = React.useState<UseWindowSizeResult>(getWindowSize({
     hasWindowObject,
     breakpoints,
   }));

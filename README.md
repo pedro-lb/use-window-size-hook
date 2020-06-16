@@ -35,11 +35,33 @@ const App = () => {
       <p>
         {`Window width: ${width}`}
       </p>
+
       <p>
         {`Window height: ${height}`}
       </p>
+
       <p>
-        {`Screen layout according to Bootstrap 4: ${screenLayout}`}
+        {`Screen layout according to Bootstrap 4: ${screenLayout.layout}`}
+      </p>
+
+      <p>
+        {`Is xs layout or below: ${screenLayout.isXsOrBelow}`}
+      </p>
+
+      <p>
+        {`Is sm layout or below: ${screenLayout.isSmOrBelow}`}
+      </p>
+
+      <p>
+        {`Is md layout or below: ${screenLayout.isMdOrBelow}`}
+      </p>
+
+      <p>
+        {`Is lg layout or below: ${screenLayout.isLgOrBelow}`}
+      </p>
+
+      <p>
+        {`Is xl layout or below: ${screenLayout.isXlOrBelow}`}
       </p>
     </>
   )
@@ -55,6 +77,23 @@ Name | Type | Required | Default value | Description
 `breakpoints` | `ScreenBreakpoints` | _optional_ | Check types below | Defines the breakpoints to be used, you can override and choose your own
 
 ## Types
+
+### useWindowSize result
+
+```ts
+{
+  width?: number;
+  height?: number;
+  screenLayout?: {
+    layout: xs | sm | md | lg | xl;
+    isXsOrBelow: boolean;
+    isSmOrBelow: boolean;
+    isMdOrBelow: boolean;
+    isLgOrBelow: boolean;
+    isXlOrBelow: boolean;
+  };
+}
+```
 
 ### Screen Breakpoints
 
