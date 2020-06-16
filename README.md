@@ -18,8 +18,6 @@ yarn add use-window-size-hook
 
 ## Usage
 
-### Updates only when user stops resizing
-
 ```jsx
 import React from 'react'
 
@@ -48,55 +46,25 @@ const App = () => {
 }
 ```
 
-### Updates continuously, at every resize event
+## Props
 
-```jsx
-import React from 'react'
+Name | Type | Required | Default value | Description
+:--- | :--- | :--- | :--- | :---
+`useDebounce` | `boolean` | _optional_ | `true` | Defines if the callback is going to be executed when the user finishes resizing the screen or not
+`debounceTimeMs` | `number` | _optional_ | `200` | Debounce time to check when the user finishes resizing the screen
+`breakpoints` | `ScreenBreakpoints` | _optional_ | Check types below | Defines the breakpoints to be used, you can override and choose your own
 
-import useWindowSize from 'use-window-size-hook'
+## Types
 
-const App = () => {
-  const {
-    width,
-    height,
-    screenLayout,
-  } = useWindowSize(false);
+### Screen Breakpoints
 
-  return (
-    <>
-      <p>
-        {`Window width: ${width}`}
-      </p>
-      <p>
-        {`Window height: ${height}`}
-      </p>
-      <p>
-        {`Screen layout according to Bootstrap 4: ${screenLayout}`}
-      </p>
-    </>
-  )
-}
-```
-
-### Easily compare layout breakpoints
-
-```jsx
-import React from 'react'
-
-import useWindowSize, { layout } from "use-window-size-hook";
-
-const App = () => {
-  const { screenLayout } = useWindowSize();
-
-  const isBiggerThanMd = screenLayout > layout.md;
-
-  return (
-    <>
-      <p>
-        {isBiggerThanMd ? "Layout is bigger than md" : "Layout is md or smaller"}
-      </p>
-    </>
-  )
+```ts
+{
+  xs: number; // defaults to 0px
+  sm: number; // defaults to 576px
+  md: number; // defaults to 768px
+  lg: number; // defaults to 992px
+  xl: number; // defaults to 1200px
 }
 ```
 
