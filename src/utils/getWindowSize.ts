@@ -1,11 +1,14 @@
-import { GetWindowSizeResult } from '../interfaces';
+import { GetWindowSizeResult, GetWindowSizeOptions } from '../interfaces';
 import getCurrentLayout from './getCurrentLayout';
 
 /**
  * Returns the current window size state.
  * @param hasWindowObject Defines if the window object is present.
  */
-const getWindowSize = (hasWindowObject: boolean): GetWindowSizeResult => {
+const getWindowSize = ({
+  hasWindowObject,
+  breakpoints,
+}: GetWindowSizeOptions): GetWindowSizeResult => {
   if (!hasWindowObject) {
     return {
       width: undefined,
@@ -27,6 +30,7 @@ const getWindowSize = (hasWindowObject: boolean): GetWindowSizeResult => {
   );
 
   const screenLayout = getCurrentLayout({
+    breakpoints,
     width,
   });
 

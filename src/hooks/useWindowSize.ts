@@ -1,7 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import * as React from 'react';
 
 import { UseWindowSizeOptions, GetWindowSizeResult } from '../interfaces';
+import defaultBreakpoints from '../constants/defaultBreakpoints';
 import getWindowSize from '../utils/getWindowSize';
+import useDidMount from './useDidMount';
 
 /**
  * Hook that monitors window size, and updates the object at the end of each window resize.
@@ -10,14 +12,18 @@ import getWindowSize from '../utils/getWindowSize';
 const useWindowSize = ({
   useDebounce = true,
   debounceTimeMs = 200,
+  breakpoints = defaultBreakpoints,
 }: UseWindowSizeOptions): GetWindowSizeResult => {
-  const hasWindowObject = useMemo(() => (
+  const hasWindowObject = React.useMemo(() => (
     typeof window === 'object'
   ), []);
 
-  const [windowSize, setWindowSize] = useState<GetWindowSizeResult>(getWindowSize(hasWindowObject));
+  const [windowSize, setWindowSize] = React.useState<GetWindowSizeResult>(getWindowSize({
+    hasWindowObject,
+    breakpoints,
+  }));
 
-  useEffect(() => {
+  useDidMount(() => {
     if (!hasWindowObject) {
       return () => {};
     }
@@ -26,14 +32,21 @@ const useWindowSize = ({
 
     const handleResize = () => {
       if (!useDebounce) {
-        setWindowSize(getWindowSize(hasWindowObject));
+        setWindowSize(getWindowSize({
+          hasWindowObject,
+          breakpoints,
+        }));
+
         return;
       }
 
       clearTimeout(resizeHandler);
 
       resizeHandler = setTimeout(() => {
-        setWindowSize(getWindowSize(hasWindowObject));
+        setWindowSize(getWindowSize({
+          hasWindowObject,
+          breakpoints,
+        }));
       }, debounceTimeMs);
     };
 
@@ -42,11 +55,7 @@ const useWindowSize = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [
-    hasWindowObject,
-    debounceTimeMs,
-    useDebounce,
-  ]);
+  });
 
   return windowSize;
 };

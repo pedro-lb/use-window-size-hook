@@ -1,7 +1,10 @@
+import { ScreenBreakpoints } from '../interfaces';
+
 /**
- * Defines breakpoint values according to bootstrap 4.
+ * Defines default breakpoint values according to Bootstrap 4.
+ * Refer to https://getbootstrap.com/docs/4.0/layout/overview/.
  */
-const defaultBreakpoints = {
+const defaultBreakpoints: ScreenBreakpoints = {
   // Extra small devices (portrait phones, less than 576px)
   xs: 0,
 
