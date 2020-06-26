@@ -57,7 +57,7 @@ export interface ScreenLayout {
  * Options for getWindowSize.
  */
 export interface GetWindowSizeOptions {
-  hasWindowObject: boolean;
+  isClientSide: boolean;
   breakpoints: ScreenBreakpoints;
 }
 

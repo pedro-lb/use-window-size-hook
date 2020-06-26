@@ -21,8 +21,9 @@ const defaultOptions = {
 const useWindowSize = (
   options: UseWindowSizeOptions = defaultOptions,
 ): UseWindowSizeResult => {
-  const hasWindowObject = React.useMemo(() => (
+  const isClientSide = React.useMemo(() => (
     typeof window === 'object'
+    && typeof document !== 'undefined'
   ), []);
 
   const breakpoints = React.useMemo(() => (
@@ -38,12 +39,12 @@ const useWindowSize = (
   ), [options]);
 
   const [windowSize, setWindowSize] = React.useState<UseWindowSizeResult>(getWindowSize({
-    hasWindowObject,
+    isClientSide,
     breakpoints,
   }));
 
   useDidMount(() => {
-    if (!hasWindowObject) {
+    if (!isClientSide) {
       return () => {};
     }
 
@@ -52,7 +53,7 @@ const useWindowSize = (
     const handleResize = () => {
       if (!useDebounce) {
         setWindowSize(getWindowSize({
-          hasWindowObject,
+          isClientSide,
           breakpoints,
         }));
 
@@ -63,7 +64,7 @@ const useWindowSize = (
 
       resizeHandler = setTimeout(() => {
         setWindowSize(getWindowSize({
-          hasWindowObject,
+          isClientSide,
           breakpoints,
         }));
       }, debounceTimeMs);

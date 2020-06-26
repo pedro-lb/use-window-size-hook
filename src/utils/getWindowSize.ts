@@ -3,13 +3,14 @@ import getCurrentLayout from './getCurrentLayout';
 
 /**
  * Returns the current window size state.
- * @param hasWindowObject Defines if the window object is present.
+ * @param isClientSide Defines if the window object is present.
+ * @param breakpoints Defines custom breakpoints.
  */
 const getWindowSize = ({
-  hasWindowObject,
+  isClientSide,
   breakpoints,
 }: GetWindowSizeOptions): GetWindowSizeResult => {
-  if (!hasWindowObject) {
+  if (!isClientSide) {
     return {
       width: undefined,
       height: undefined,
