@@ -98,8 +98,8 @@ Name | Type | Required | Default value | Description
 {
   width?: number;
   height?: number;
-  screenLayout?: {
-    layout: xs | sm | md | lg | xl;
+  screenLayout: {
+    layout: xs | sm | md | lg | xl | undefined;
 
     isXs: boolean;
     isSm: boolean;

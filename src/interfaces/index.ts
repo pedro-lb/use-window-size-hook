@@ -32,7 +32,7 @@ export interface GetCurrentLayoutOptions {
  * Result for getCurrentLayout.
  */
 export interface ScreenLayout {
-  layout: LayoutEnum;
+  layout?: LayoutEnum;
 
   isXs: boolean;
   isSm: boolean;
@@ -67,7 +67,7 @@ export interface GetWindowSizeOptions {
 export interface GetWindowSizeResult {
   width?: number;
   height?: number;
-  screenLayout?: ScreenLayout;
+  screenLayout: ScreenLayout;
 }
 
 /**

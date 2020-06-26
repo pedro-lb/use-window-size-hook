@@ -1,30 +1,6 @@
 import { GetCurrentLayoutOptions, ScreenLayout } from '../interfaces';
+import defaultScreenLayout from '../constants/defaultScreenLayout';
 import LayoutEnum from '../constants/layoutEnum';
-
-/**
- * Default return options.
- */
-const defaultReturn: ScreenLayout = {
-  layout: LayoutEnum.xs,
-
-  isXs: false,
-  isSm: false,
-  isMd: false,
-  isLg: false,
-  isXl: false,
-
-  isXsOrBelow: false,
-  isSmOrBelow: false,
-  isMdOrBelow: false,
-  isLgOrBelow: false,
-  isXlOrBelow: false,
-
-  isXsOrAbove: false,
-  isSmOrAbove: false,
-  isMdOrAbove: false,
-  isLgOrAbove: false,
-  isXlOrAbove: false,
-};
 
 /**
  * Returns the current layout.
@@ -36,7 +12,7 @@ const getCurrentLayout = ({
 }: GetCurrentLayoutOptions): ScreenLayout => {
   if (width <= breakpoints.sm) {
     return {
-      ...defaultReturn,
+      ...defaultScreenLayout,
 
       // Current layout
       layout: LayoutEnum.xs,
@@ -58,7 +34,7 @@ const getCurrentLayout = ({
 
   if (width < breakpoints.md) {
     return {
-      ...defaultReturn,
+      ...defaultScreenLayout,
 
       // Current layout
       layout: LayoutEnum.sm,
@@ -80,7 +56,7 @@ const getCurrentLayout = ({
 
   if (width < breakpoints.lg) {
     return {
-      ...defaultReturn,
+      ...defaultScreenLayout,
 
       // Current layout
       layout: LayoutEnum.md,
@@ -102,7 +78,7 @@ const getCurrentLayout = ({
 
   if (width < breakpoints.xl) {
     return {
-      ...defaultReturn,
+      ...defaultScreenLayout,
 
       // Current layout
       layout: LayoutEnum.lg,
@@ -123,7 +99,7 @@ const getCurrentLayout = ({
   }
 
   return {
-    ...defaultReturn,
+    ...defaultScreenLayout,
 
     // Current layout
     layout: LayoutEnum.xl,

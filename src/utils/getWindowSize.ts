@@ -1,4 +1,5 @@
 import { GetWindowSizeResult, GetWindowSizeOptions } from '../interfaces';
+import defaultScreenLayout from '../constants/defaultScreenLayout';
 import getCurrentLayout from './getCurrentLayout';
 
 /**
@@ -14,7 +15,7 @@ const getWindowSize = ({
     return {
       width: undefined,
       height: undefined,
-      screenLayout: undefined,
+      screenLayout: defaultScreenLayout,
     };
   }
 
